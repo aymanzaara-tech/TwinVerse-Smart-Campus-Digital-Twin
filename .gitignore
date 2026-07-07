@@ -141,3 +141,23 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+# --------------------
+# Python
+# --------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Firebase
+firebase-adminsdk*.json
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
