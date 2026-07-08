@@ -155,6 +155,7 @@ __pycache__/
 
 # Firebase
 firebase-adminsdk*.json
+backend/credentials/
 
 # VS Code
 .vscode/
