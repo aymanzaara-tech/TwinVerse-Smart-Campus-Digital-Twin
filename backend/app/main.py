@@ -1,16 +1,16 @@
 from fastapi import FastAPI
 from app.firebase_config import database
-from app.schemas import OccupancyData
 from app.routers.weather import router as weather_router
 from app.routers.occupancy import router as occupancy_router
+from app.routers import analytics
 app = FastAPI(
     title="TwinVerse Backend",
     version="1.0.0",
     description="Backend API for TwinVerse Smart Campus Digital Twin"
 )
 app.include_router(weather_router, prefix="/api", tags=["Weather"])
-app.include_router(weather_router, prefix="/api", tags=["Weather"])
 app.include_router(occupancy_router, prefix="/api", tags=["Occupancy"])
+app.include_router(analytics.router)
 
 @app.on_event("startup")
 async def startup_event():

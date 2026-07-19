@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from app.firebase_config import database
 
 
@@ -21,9 +22,13 @@ def fetch_weather():
         "temperature": data["current"]["temperature_2m"],
         "humidity": data["current"]["relative_humidity_2m"],
     }
-
     database.child("weather").set(weather_data)
+    history_data = {
+    **weather_data,
+    "timestamp": datetime.now().isoformat()
+    }
 
+    database.child("weather_history").push(history_data)
     return weather_data
 def get_latest_weather():
     data = database.child("weather").get()
