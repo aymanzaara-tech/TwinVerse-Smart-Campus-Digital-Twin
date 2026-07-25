@@ -162,3 +162,9 @@ backend/credentials/
 
 # macOS
 .DS_Store
+
+# Firebase
+firebase-adminsdk*.json
+
+# Environment Variables
+.env
