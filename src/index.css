@@ -1,0 +1,113 @@
+/* =============================================================
+   TwinVerse — global styles & design tokens (Tailwind v4)
+   Theme: Option 8 — Quantum Nebula & Cobalt (DRAMATIC HIGH-IMPACT VERSION)
+   ============================================================= */
+@import "tailwindcss";
+
+@theme {
+  /* ---- Fonts ---- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- Quantum Nebula & Cobalt Surfaces ---- */
+  --color-bg: #030718;        /* Deep Space Navy background */
+  --color-card: #0d1731;      /* Quantum Royal Cobalt Card Surface */
+  --color-sidebar: #070e20;   /* Quantum Sidebar Surface */
+  --color-line: rgba(56, 189, 248, 0.22); /* Cobalt & Cyan hairline borders */
+
+  /* ---- Text ---- */
+  --color-ink: #f8fafc;       /* Primary text */
+  --color-ink-dim: #cbd5e1;   /* Secondary text */
+  --color-ink-faint: #64748b; /* Captions/labels */
+
+  /* ---- Accents & Status ---- */
+  --color-accent: #38bdf8;      /* Quantum Cyan */
+  --color-accent-deep: #2563eb; /* Royal Cobalt */
+  --color-nebula: #c084fc;      /* Soft Purple Nebula */
+  --color-ok: #34d399;          /* Emerald Mint */
+  --color-warn: #fbbf24;        /* Solar Amber */
+  --color-crit: #f43f5e;        /* Crimson Rose */
+  --color-vio: #a78bfa;         /* Quantum Violet */
+
+  /* ---- Radius ---- */
+  --radius-card: 18px;
+}
+
+/* ---- Base ---- */
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #030718;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Deep Space Navy + Vivid Royal Cobalt & Purple Nebula ambient lighting */
+  background-image:
+    radial-gradient(circle 800px at 50% -100px, rgba(37, 99, 235, 0.45), transparent 70%),
+    radial-gradient(circle 600px at 100% 100%, rgba(192, 132, 252, 0.22), transparent 70%),
+    radial-gradient(circle 500px at 0% 50%, rgba(56, 189, 248, 0.15), transparent 60%),
+    linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+}
+
+/* ---- Reusable surface utilities ---- */
+@utility card {
+  background: linear-gradient(145deg, rgba(13, 23, 49, 0.95), rgba(7, 14, 32, 0.95));
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 25px -2px rgba(37, 99, 235, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@utility glass {
+  background: linear-gradient(135deg, rgba(13, 23, 49, 0.85), rgba(7, 14, 32, 0.85));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 32px -4px rgba(37, 99, 235, 0.28), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Hover glow effect for interactive cards */
+.card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 30px -4px rgba(56, 189, 248, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Quantum Cyan -> Royal Cobalt -> Nebula Purple gradient text */
+@utility text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #c084fc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ---- Scrollbar (Cobalt & Cyan styled) ---- */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.55);
+}
+
+/* ---- Accessibility: respect reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
