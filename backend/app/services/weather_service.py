@@ -4,8 +4,8 @@ from app.firebase_config import database
 
 
 def fetch_weather():
-    latitude = 13.0827
-    longitude = 77.5685
+    latitude = 13.1575
+    longitude = 77.5608
 
     url = (
         f"https://api.open-meteo.com/v1/forecast?"
