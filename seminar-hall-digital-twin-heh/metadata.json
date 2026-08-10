@@ -1,0 +1,6 @@
+{
+  "name": "Seminar Hall Digital Twin",
+  "description": "Photorealistic 3D digital twin of the seminar hall with accurate PBR materials, dynamic lighting, Unity export support, and scene API controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
