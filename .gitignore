@@ -167,4 +167,5 @@ backend/credentials/
 firebase-adminsdk*.json
 
 # Environment Variables
-.env
+.envfirebase-service-account.json
+firebase-service-account.json
